@@ -48,6 +48,13 @@ const reserva = (app) => {
             res.send(reservaAtual)
         }).catch((err) => {res.send(err);})
     })
+    //Rota DELETE
+    app.delete('/reserva/:id', (req, res) => {
+        DadosDAO.deletarReserva(req.params.id)
+        .then((result) => {
+            res.send("Reserva deletada com sucesso")
+        }).catch((err) => {res.send(err)});
+    })
 }
 
 export {reserva}
