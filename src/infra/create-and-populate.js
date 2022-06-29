@@ -27,7 +27,8 @@ const ADD_HOSPEDES_DATA = `
 INSERT INTO HOSPEDES (ID_HOSPEDE, NOME, SOBRENOME, CPF, DATA_DE_NASCIMENTO, TELEFONE, EMAIL, ENDEREÇO)
 VALUES 
     (1, 'Thomas', 'Cunha', '93223452944', '1984-01-11', '11943238790', 'thomfacilitator@resilia.com', 'Sao Paulo'),
-`
+    (2, 'Kassiane', 'Façanha', '')
+    `
 
 function criaTabelaHospedes() {
     db.run(HOSPEDES_SCHEMA, (error)=> {
