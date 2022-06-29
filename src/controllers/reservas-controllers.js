@@ -1,10 +1,10 @@
 import Reserva from "../models/reservas-models.js";
-import bdSQLite from './infra/sqlite-db.js';
+import bd from '../infra/sqlite-db.js';
 import ReservaDAO from "../DAO/reservas-dao.js";
 
 const reserva = (app) => {
     //DAO
-    const DadosDAO = new ReservaDAO(bdSQLite) 
+    const DadosDAO = new ReservaDAO(bd) 
 
     //Rota POST
     app.post('/reserva', (req, res) => {
