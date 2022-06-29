@@ -6,7 +6,7 @@ class ReservaDAO {
     inserirReserva(novaReserva){
         return new Promise((resolve, reject) => {
             this.bd.run(`INSERT INTO USUARIOS (ID_QUARTO, ID_HOSPEDE, CHECKIN, CHECKOUT, STATUS_PAGAMENTO) VALUES (?,?,?,?,?)`, 
-            [novaReserva.idQuarto, novaReserva.idHospede, novaReserva.checkin, novaReserva.checkout, novaReserva.statusPagamento],
+            [novaReserva.id_quarto, novaReserva.id_hospede, novaReserva.checkin, novaReserva.checkout, novaReserva.status_pagamento],
             (error) => {
                 if (error) {
                     console.log('reject');
@@ -38,6 +38,18 @@ class ReservaDAO {
                     reject("Erro ao selecionar o banco")
                 } else {
                     resolve({"Reserva selecionada": rows})
+                }
+            })
+        })
+    }
+
+    alterarReserva(novaReserva){
+        return new Promise((resolve, reject) => {
+            this.bd.run(`UPDATE RESERVAS SET ID_QUARTO = ?, ID_HOSPEDE = ?, CHECKIN = ?, CHECKOUT = ?, STATUS_PAGAMENTO = ? WHERE ID_RESERVA = ?`, novaReserva, (erro) => {
+                if (erro) {
+                    reject("Erro ao atualizar a reserva")
+                } else {
+                    resolve("Reserva atualizada")
                 }
             })
         })
