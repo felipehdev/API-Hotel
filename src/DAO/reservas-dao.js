@@ -10,7 +10,7 @@ class ReservaDAO {
             (erro) => {
                 if (erro) {
                     console.log('reject');
-                    reject('Reserva não pode ser inserido', erro)
+                    reject('Reserva não pode ser inserido',)
                 } else {
                     console.log('resolve');
                     resolve('Reserva inserida com sucesso')
