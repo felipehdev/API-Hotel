@@ -21,10 +21,17 @@ const reserva = (app) => {
     app.get('/reserva', (req, res) => {
         DadosDAO.listarReservas()
         .then((result) => {
-            res.json(result)})
-        .catch((err) =>{res.send(err)})
+            res.json(result)
+        }).catch((err) =>{res.send(err)})
     })
     //Rota GET que puxa por id
+    app.get('/reserva/:id', (req, res) => {
+        const id = req.params.id;
+        DadosDAO.listarReserva(id)
+        .then((result) => {
+            res.json(result)
+        }).catch((err) =>{res.send(err)})
+    })
 }
 
 export {reserva}
