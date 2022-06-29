@@ -5,7 +5,8 @@ import ReservaDAO from "../DAO/reservas-dao.js";
 const reserva = (app) => {
     //DAO
     const DadosDAO = new ReservaDAO(bdSQLite) 
-    //Rota post
+
+    //Rota POST
     app.post('/reserva', (req, res) => {
         const body = req.body;
         const novaReserva = new Reserva(body.idQuarto, body.idHospede, body.checkin, body.checkout, body.statusPagamento)
@@ -16,6 +17,14 @@ const reserva = (app) => {
             res.send(err);
         })
     })
+    //Rota GET que puxa todas as reservas
+    app.get('/reserva', (req, res) => {
+        DadosDAO.listarReservas()
+        .then((result) => {
+            res.json(result)})
+        .catch((err) =>{res.send(err)})
+    })
+    //Rota GET que puxa por id
 }
 
 export {reserva}

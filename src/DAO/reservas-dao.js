@@ -18,6 +18,18 @@ class ReservaDAO {
             })
         })
     }
+
+    listarReservas(){
+        return new Promise((resolve, reject) =>{
+            this.bd.all(`SELECT * FROM RESERVAS`, (error, resultado) => {
+                if (error) {
+                    reject("Erro ao selecionar o banco")
+                } else {
+                    resolve({"RESERVAS SELECIONADAS ": resultado});
+                }
+            })
+        })
+    }
 }
 
 export {ReservaDAO}
