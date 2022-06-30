@@ -42,9 +42,12 @@ const reserva = (app) => {
             body.checkout || reservaAlt.checkout, 
             body.status_pagamento || reservaAlt.status_pagamento
         )
-        const param = [dadosNovos.id_quarto, dadosNovos.id_hospede, dadosNovos.checkin, dadosNovos.checkout, dadosNovos.status_pagamento, id];
+        console.log(dadosNovos);
+        const param = [dadosNovos.id_quarto, dadosNovos.id_hospede, dadosNovos.checkin, dadosNovos.checkout, dadosNovos.status_pagamento, parseInt(id)];
+        console.log(param);
         const reservaAtual = DadosDAO.alterarReserva(param)
         .then((result) => {
+            console.log(reservaAtual);
             res.send(reservaAtual)
         }).catch((err) => {res.send(err);})
     })
