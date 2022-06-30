@@ -1,6 +1,6 @@
-import Reserva from "../models/reservas-models.js";
-import bd from '../infra/sqlite-db.js';
-import ReservaDAO from "../DAO/reservas-dao.js";
+import {Reserva} from '../models/reservas-models.js';
+import {bd} from '../infra/sqlite-db.js';
+import {ReservaDAO} from "../DAO/reservas-dao.js";
 
 const reserva = (app) => {
     //DAO
