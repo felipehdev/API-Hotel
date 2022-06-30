@@ -60,9 +60,9 @@ const reserva = (app) => {
 export {reserva}
 
 // Modelo base para o INSOMNIA{
-// 	"id_quarto": 8,
-// 	"id_hospede": 4,
-// 	"checkin": "2022-04-10",
-// 	"checkout": "2022-04-30",
-// 	"status_pagamento": "Concluido"
+// 	"id_quarto": ,
+// 	"id_hospede": ,
+// 	"checkin": "",
+// 	"checkout": "",
+// 	"status_pagamento": ""
 // }
