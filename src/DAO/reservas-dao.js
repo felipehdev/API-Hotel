@@ -5,7 +5,7 @@ class ReservaDAO {
 
     inserirReserva(novaReserva){
         return new Promise((resolve, reject) => {
-            this.bd.run(`INSERT INTO USUARIOS (ID_QUARTO, ID_HOSPEDE, CHECKIN, CHECKOUT, STATUS_PAGAMENTO) VALUES (?,?,?,?,?)`, 
+            this.bd.run(`INSERT INTO RESERVAS (ID_QUARTO, ID_HOSPEDE, CHECKIN, CHECKOUT, STATUS_PAGAMENTO) VALUES (?,?,?,?,?)`, 
             [novaReserva.id_quarto, novaReserva.id_hospede, novaReserva.checkin, novaReserva.checkout, novaReserva.status_pagamento],
             (erro) => {
                 if (erro) {
