@@ -11,6 +11,7 @@ const db = new sqlite3.Database('./src/infra/database.db');
 //no telefone nao utilizar caracteres especiais, apenas numeros no formato 00999999999 (dd+numero).
 //padrao 
 
+
 // const HOSPEDES_SCHEMA = `
 // CREATE TABLE IF NOT EXISTS "HOSPEDES" (
 //     "ID_HOSPEDE" INTEGER PRIMARY KEY AUTOINCREMENT,    
