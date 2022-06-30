@@ -67,4 +67,6 @@ class QuartoDAO {
     }
 }
 
+//bugou o commit kkkk
+
 export {QuartoDAO}
