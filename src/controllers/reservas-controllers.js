@@ -42,13 +42,10 @@ const reserva = (app) => {
             body.checkout || reservaAlt.checkout, 
             body.status_pagamento || reservaAlt.status_pagamento
         )
-        console.log(dadosNovos);
         const param = [dadosNovos.id_quarto, dadosNovos.id_hospede, dadosNovos.checkin, dadosNovos.checkout, dadosNovos.status_pagamento, parseInt(id)];
-        console.log(param);
-        const reservaAtual = DadosDAO.alterarReserva(param)
+        DadosDAO.alterarReserva(param)
         .then((result) => {
-            console.log(reservaAtual);
-            res.send(reservaAtual)
+            res.send(result)
         }).catch((err) => {res.send(err);})
     })
     //Rota DELETE
@@ -61,3 +58,11 @@ const reserva = (app) => {
 }
 
 export {reserva}
+
+// Modelo base para o INSOMNIA{
+// 	"id_quarto": 8,
+// 	"id_hospede": 4,
+// 	"checkin": "2022-04-10",
+// 	"checkout": "2022-04-30",
+// 	"status_pagamento": "Concluido"
+// }
