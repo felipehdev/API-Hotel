@@ -1,6 +1,6 @@
 import {Quarto} from '../models/quartos-models.js';
 import {bd} from '../infra/sqlite-db.js';
-import {QuartoDAO} from "../DAO/quarto-dao.js";
+import {QuartoDAO} from "../DAO/quartos-dao.js";
 
 const quarto = (app) => {
     //DAO
