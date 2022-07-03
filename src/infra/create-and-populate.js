@@ -73,6 +73,10 @@ VALUES
     (44, 'Thaynara', 'Cabral', '12175334511', '2000-01-11', '41984751211', 'thaycabral@gmail.com', Parana),
     (45, 'Veronica', 'Ribas', '75205712344', '2000-01-11', '41997519472', 'veribas@gmail.com', Parana),
     (46, 'Victor Gabriel', 'Camargo', '72561085311', '2000-01-11', '41998451084', 'victorg.camargo@gmail.com'),
+    (47, 'Rodrigo', 'Junqueria', '58137522354', '1987-01-11', '82997459201', 'rodri_junqueira@gmail.com', 'Alagoas'),
+    (48, 'Maria Celestina', 'de Jesus', '27247184977', '1955-01-11', '27984619400',  'mariac.jesus@gmail.com', 'Espirito Santo'),
+    (49, 'Orivaldo', 'Almeida', '28411749533', '1982-01-11', '62984717534', 'almeida.o@gmail.com', 'Goias'),
+    (50, 'Marlene', 'Oliveira', '29275311745', '1967-01-11', '98921475334', 'olimarlene@gmail.com', 'Maranhao')
     `
     
 function criaTabelaHospedes() {
