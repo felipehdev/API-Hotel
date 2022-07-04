@@ -176,12 +176,88 @@ function populaTabelaQuartos() {
 //     });
 // }
 
-db.serialize( ()=> {
+//==== FUNCIONARIOS
+
+const FUNCIONARIOS_SCHEMA = `
+CREATE TABLE IF NOT EXISTS FUNCIONARIOS (
+    "ID_FUNCIONARIO" INTEGER PRIMARY KEY AUTOINCREMENT, 
+    "NOME_FUNCIONARIO" VARCHAR(70),
+    "CARGO" VARCHAR(32),
+    "STATUS_SERVIÇO" VARCHAR(32),
+    "HORARIO_ENTRADA" TIME,
+    "HORARIO_SAIDA" TIME,
+    "SALARIO" INTEGER,
+);`;
+
+const ADD_FUNCIONARIOS_DATA = `INSERT INTO FUNCIONARIOS (ID_FUNCIONARIO, NOME_FUNCIONARIO, CARGO, STATUS_SERVICO, HORARIO_ENTRADA, HORARIO_SAIDA, SALARIO)
+VALUES 
+
+    (1, "Marcelo Ramos", "Recepcionista", "Ativo", 07:00:00, 15:00:00, 2500,00),
+    (2, "Alice do Carmo", "Recepcionista", "Ativo", 09:00:00, 17:00:00, 2500,00),
+    (3, "Brícia da Silva Santos", "Recepcionista", "Ativo", 15:00:00, 23:00:00, 2800,00),
+    (4, "José Carlos Schneider", "Recepcionista", "Ativo", 07:00:00, 01:00:00, 2800,00),
+    (5, "Ruan Alberto Vidanova", "Recepcionista", "Férias", 01:00:00, 08:00:00, 2800,00),
+    (6, "Julia Tereza Pereira", "Recepcionista", "Temporário", 01:00:00, 08:00:00, 2300,00),
+
+    (7, "Tony Moreira", "Mecânico", "Ativo", 07:00:00, 16:00:00, 2700,00),
+    (8, "Carlos Santos Menezes", "Mecânico", "Ativo", 16:00:00, 22:00:00, 2400,00),
+
+    (9, "Alessandra Santini", "Camareira", "Ativo", 07:00:00, 15:00:00, 2900,00),
+    (10, "Joana Marinete de Souza", "Camareira", "Licença Maternidade", 07:00:00, 15:00:00, 2900,00),
+    (11, "Saulo Prestes Junior", "Camareiro", "Ativo", 07:00:00, 15:00:00, 2900,00),
+    (12, "Julyanna Freitas de Vasoncelos", "Camareira", "Ativo", 07:00:00, 15:00:00, 2900,00),
+    (13, "Ulisses Pietro Nunes", "Camareiro", "Ativo", 07:00:00, 15:00:00, 2900,00),
+    (14, "Marcela Moreira", "Camareira", "Temporário", 07:00:00, 15:00:00, 2700,00),
+    (15, "Marlene Pinha", "Camareira", "Ativo", 15:00:00, 23:00:00, 2900,00),
+    (16, "Geane Gertrudes", "Camareira", "Ativo", 15:00:00, 23:00:00, 2900,00),
+    (17, "Paulo de Tarso Silve", "Camareiro", "Ativo", 15:00:00, 23:00:00, 2900,00),
+    (18, "Lucas Yuri Fleh", "Camareiro", "Ativo", 15:00:00, 23:00:00, 2900,00),
+
+    (19, "Felipe Margueto", "Segurança", "Ativo", 06:00:00, 17:00:00, 4000,00),
+    (20, "Juan Carlos Danesi", "Segurança", "Licença Paternidade", 06:00:00, 17:00:00, 4000,00),
+    (21, "Layla Maria Fraccaro", "Segurança", "Ativo", 17:00:00, 02:00:00, 5000,00),
+    (22, "Salvatino Huihgh", "Segurança", "Temporário", 06:00:00, 17:00:00, 4000,00),
+    (23, "Lucas Marochevic de Toledo", "Segurança", "Ativo", 17:00:00, 02:00:00, 5000,00),
+    (24, "Ricardo Marola", "Segurança", "Ativo", 02:00:00, 07:00:00, 4000,00),
+    (25, "Tânia Mara da Silveira", "Segurança", "Ativo", 02:00:00, 07:00:00, 4000,00),
+
+    (26, "Sônia Staron", "Cozinheira", "Ativo", 06:00:00, 14:00:00, 4000,00),
+    (27, "Maria Rita Lucheve", "Cozinheira", "Ativo", 06:00:00, 14:00:00, 4000,00),
+    (28, "Gary Onus Burs", "Cozinheiro", "Ativo", 14:00:00, 22:00:00, 4000,00),
+    (29, "Alisson Gerber", "Cozinheiro", "Ativo", 14:00:00, 22:00:00, 4000,00),
+    (30, "Salete Meira", "Cozinheira", "Ativo", 22:00:00, 06:00:00, 4000,00),
+
+    (31, "Bruno Baldo", "Auxiliar de Cozinha", "Ativo", 06:00:00, 14:00:00, 2500,00),
+    (32, "Aristides Falave", "Auxiliar de Cozinha", "Férias", 06:00:00, 14:00:00, 2500,00),
+    (33, "Sonia Abraão Defuntosa", "Auxiliar de Cozinha", "Temporário", 06:00:00, 14:00:00, 2500,00),
+    (34, "Luiza Sonza", "Auxiliar de Cozinha", "Ativo", 14:00:00, 22:00:00, 2500,00),
+    (35, "Priscilla Alburdia", "Auxiliar de Cozinha", "Ativo", 14:00:00, 22:00:00, 2500,00),
+    (36, "Antony Salazar Matheus Juanil", "Auxiliar de Cozinha", "Ativo", 22:00:00, 06:00:00, 2500,00),
+    (37, "Carolina Anjos", "Auxiliar de Cozinha", "Ativo", 22:00:00, 06:00:00, 2500,00),
+    
+
+`
+function criaTabelaFuncionarios() {
+    db.run(FUNCIONARIOS_SCHEMA, (error) => {
+        if (error) console.log("Erro ao criar tabela de FUNCIONARIOS", error);
+    });
+}
+
+
+function populaTabelafuncionarios() {
+    db.run(ADD_FUNCIONARIOS_DATA, (error) => {
+        if (error) console.log("Erro ao popular tabela de FUNCIONARIOS", error);
+    });
+}
+
+db.serialize(() => {
     // criaTabelaHospedes();
     // populaTabelaHospedes();
     criaTabelaQuartos();
     populaTabelaQuartos();
     // criaTabelaReservas();
     // populaTabelaReservas();
-    
+    criaTabelaFuncionarios ();
+    populaTabelafuncionarios ();
+
 });
