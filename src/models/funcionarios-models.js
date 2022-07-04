@@ -6,7 +6,8 @@ class Funcionario {
         this.nome_funcionario = nome_funcionario;
         this.cargo = cargo;
         this.status_servico = status_servico;
-        this.horarios = horarios;
+        this.horario_entrada = horario_entrada;
+        this.horario_saida = horario_saida;
         this.salario = salario;
     }
 }
