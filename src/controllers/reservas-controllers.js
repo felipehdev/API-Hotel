@@ -1,10 +1,10 @@
-import Reserva from "../models/reservas-models.js";
-import bdSQLite from './infra/sqlite-db.js';
-import ReservaDAO from "../DAO/reservas-dao.js";
+import {Reserva} from '../models/reservas-models.js';
+import {bd} from '../infra/sqlite-db.js';
+import {ReservaDAO} from "../DAO/reservas-dao.js";
 
 const reserva = (app) => {
     //DAO
-    const DadosDAO = new ReservaDAO(bdSQLite) 
+    const DadosDAO = new ReservaDAO(bd) 
 
     //Rota POST
     app.post('/reserva', (req, res) => {
@@ -42,10 +42,10 @@ const reserva = (app) => {
             body.checkout || reservaAlt.checkout, 
             body.status_pagamento || reservaAlt.status_pagamento
         )
-        const param = [dadosNovos.id_quarto, dadosNovos.id_hospede, dadosNovos.checkin, dadosNovos.checkout, dadosNovos.status_pagamento, id];
-        const reservaAtual = DadosDAO.alterarReserva(param)
+        const param = [dadosNovos.id_quarto, dadosNovos.id_hospede, dadosNovos.checkin, dadosNovos.checkout, dadosNovos.status_pagamento, parseInt(id)];
+        DadosDAO.alterarReserva(param)
         .then((result) => {
-            res.send(reservaAtual)
+            res.send(result)
         }).catch((err) => {res.send(err);})
     })
     //Rota DELETE
@@ -58,3 +58,11 @@ const reserva = (app) => {
 }
 
 export {reserva}
+
+// Modelo base para o INSOMNIA{
+// 	"id_quarto": ,
+// 	"id_hospede": ,
+// 	"checkin": "",
+// 	"checkout": "",
+// 	"status_pagamento": ""
+// }
