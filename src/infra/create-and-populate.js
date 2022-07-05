@@ -271,6 +271,7 @@ CREATE TABLE IF NOT EXISTS FUNCIONARIOS (
 
 const ADD_FUNCIONARIOS_DATA = `INSERT INTO FUNCIONARIOS (ID_FUNCIONARIO, NOME_FUNCIONARIO, CARGO, STATUS_SERVIÇO, HORARIO_ENTRADA, HORARIO_SAIDA, SALARIO)
 VALUES 
+
     (1, "Marcelo Ramos", "Recepcionista", "Ativo", "09:00:00", "17:00:00", 2500),
     (2, "Alice do Carmo", "Recepcionista", "Ativo", "09:00:00", "17:00:00", 2500),
     (3, "Brícia da Silva Santos", "Recepcionista", "Ativo", "15:00:00", "23:00:00", 2800),
@@ -313,6 +314,7 @@ VALUES
     (35, "Priscilla Alburdia", "Auxiliar de Cozinha", "Ativo", "14:00:00", "22:00:00", 2500),
     (36, "Antony Salazar Matheus Juanil", "Auxiliar de Cozinha", "Ativo", "22:00:00", "06:00:00", 2500),
     (37, "Carolina Anjos", "Auxiliar de Cozinha", "Ativo", "22:00:00", "06:00:00", 2500)    
+
 `
 function criaTabelaFuncionarios() {
     db.run(FUNCIONARIOS_SCHEMA, (error) => {

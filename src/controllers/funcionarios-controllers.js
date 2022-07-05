@@ -1,6 +1,6 @@
 import {Funcionario} from '../models/funcionarios-models.js';
 import {bd} from '../infra/sqlite-db.js';
-import {FuncionarioDAO} from "../DAO/funcionarios-dao";
+import {FuncionarioDAO} from "../DAO/funcionarios-dao.js";
 
 const funcionario = (app) => {
     //DAO
@@ -36,12 +36,12 @@ const funcionario = (app) => {
         const id = req.params.id;
         const funcionarioAlt = DadosDAO.listarFuncionario(id);
         const dadosNovos = new Funcionario(
-            body.nome_funcionario || funcionarioAlt.nome_funcionario, 
+           body.nome_funcionario || funcionarioAlt.nome_funcionario, 
             body.cargo || funcionarioAlt.cargo, 
-            body.status_servico || reservaAlt.status_servico, 
-            body.horario_entrada || reservaAlt.horario_entrada, 
-            body.horario_saida || reservaAlt.horario_saida,
-            body.salario || reservaAlt.salario
+            body.status_servico || funcionarioAlt.status_servico, 
+            body.horario_entrada || funcionarioAlt.horario_entrada, 
+            body.horario_saida || funcionarioAlt.horario_saida,
+            body.salario || funcionarioAlt.salario 
         )
         const param = [dadosNovos.nome_funcionario, dadosNovos.cargo, dadosNovos.status_servico, dadosNovos.horario_entrada, dadosNovos.horario_saida, dadosNovos.salario, parseInt(id)];
         DadosDAO.alterarFuncionario(param)
