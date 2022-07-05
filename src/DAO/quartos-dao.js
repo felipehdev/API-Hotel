@@ -3,6 +3,7 @@ class QuartoDAO {
         this.bd = bd;
     }
 
+    // funçao PUT
     inserirQuarto(novoQuarto){
         return new Promise((resolve, reject) => {
             this.bd.run(`INSERT INTO QUARTOS (NUMERO_DO_QUARTO, QNT_HOSPEDES, OCUPAÇÃO, CLASSE, DIARIA, MANUTENÇÃO) VALUES (?,?,?,?,?,?)`, 
@@ -18,7 +19,8 @@ class QuartoDAO {
             })
         })
     }
-
+    
+    // funçao GET
     listarQuartos(){
         return new Promise((resolve, reject) => {
             this.bd.all(`SELECT * FROM QUARTOS`, (erro, resultado) => {
@@ -31,6 +33,7 @@ class QuartoDAO {
         })
     }
 
+    // funçao GET por id
     listarQuartos(id){
         return new Promise((resolve, reject) => {
             this.bd.all(`SELECT * FROM QUARTOS WHERE ID_QUARTO = ?`, [id], (erro, rows) => {
@@ -43,6 +46,34 @@ class QuartoDAO {
         })
     }
 
+    // funçao GET que puxa quartos ocupados ou desocupados / TESTAR
+    listarOcupacao(sn){
+        return new Promise((resolve, reject) => {
+            this.bd.all(`SELECT * FROM QUARTOS WHERE OCUPACAO = ?`, [sn], (erro, rows) => {
+                if (erro) {
+                    reject("Erro ao selecionar o banco", erro)
+                }else if ( sn == 'nao') {
+                    resolve({"Quartos desocupados": rows})
+                }
+                else if (sn = 'sim') {
+                    resolve({"Quartos ocupados": rows})
+                }
+            })
+        })
+    }
+
+
+
+    
+    //Rota GET que puxa apenas quartos ocupados
+
+    //Rota GET que retorna os quartos totalmente disponiveis (desocupados e livre de manutençao)
+
+    //Rota GET que retorna os quartos em manutençao
+
+    //Rota GET que retorna os quartos que nao estao em manutenção
+
+    // funçao UPDATE
     alterarQuarto(novoQuarto){
         return new Promise((resolve, reject) => {
             this.bd.run(`UPDATE QUARTO SET NUMERO_DO_QUARTO = ?, QNT_HOSPEDES = ?, OCUPAÇÃO = ?, CLASSE = ?, DIARIA = ?, MANUTENÇÃO = ?, WHERE ID_QUARTO = ?`, novoQuarto, (erro) => {
@@ -54,6 +85,8 @@ class QuartoDAO {
             })
         })
     }
+
+    // funçao DELETE
     deletarQuarto(id){
         return new Promise ((resolve, reject) => {
             this.bd.run(`DELETE FROM QUARTO WHERE ID_QUARTO = ${id}`, (erro) => {

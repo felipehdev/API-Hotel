@@ -9,7 +9,7 @@ const quarto = (app) => {
     //Rota POST
     app.post('/quarto', (req, res) => {
         const body = req.body;
-        const novaQuarto = new Quarto(body.numero_quarto, body.qnt_hospedes, body.ocupacao, body.classe, body.diaria, body.manutencao)
+        const novoQuarto = new Quarto(body.numero_quarto, body.qnt_hospedes, body.ocupacao, body.classe, body.diaria, body.manutencao)
         DadosDAO.inserirQuarto(novoQuarto)
         .then((result) => {
             res.send("Inserido quarto com sucesso");
@@ -30,6 +30,27 @@ const quarto = (app) => {
             res.json(result)
         }).catch((err) => {res.send(err)})
     })
+
+    //Rota GET que puxa apenas quartos desocupados
+    app.get('/quarto/ocupacao:sn', (req, res) => {
+        const sn = req.params.ocupacao;
+        DadosDAO.listarOcupacao(sn)
+        .then((result) => {
+            res.json(result)
+        }).catch((err) => {res.send(err)})
+    })
+
+
+    //Rota GET que retorna ocupaçao
+
+
+    //Rota GET que retorna os quartos totalmente disponiveis (desocupados e livre de manutençao)
+
+    //Rota GET que retorna os quartos em manutençao
+
+    //Rota GET que retorna os quartos que nao estao em manutenção
+
+
     //Rota PUT
     app.put('/quarto/:id', (req, res) => {
         const body = req.body
