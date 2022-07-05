@@ -1,10 +1,10 @@
 import {Funcionario} from '../models/funcionarios-models.js';
 import {bd} from '../infra/sqlite-db.js';
-import {FuncionarioDAO} from "../DAO/funcionarios-dao";
+import {FuncionariosDAO} from "../DAO/funcionarios-dao.js";
 
 const funcionario = (app) => {
     //DAO
-    const DadosDAO = new FuncionarioDAO(bd) 
+    const DadosDAO = new FuncionariosDAO(bd) 
 
     //Rota POST
     app.post('/funcionario', (req, res) => {
