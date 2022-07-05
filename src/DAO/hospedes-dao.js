@@ -45,7 +45,7 @@ class HospedesDAO {
 
     alterarHospede(novoHospede){
         return new Promise((resolve, reject) => {
-            this.bd.run(`UPDATE RESERVAS SET ID_HOSPEDE = ?, NOME = ?, SOBRENOME = ?, CPF = ?, DATA_DE_NASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, ENDEREÇO = ? WHERE ID_HOSPEDE = ?`, novoHospede, (erro) => {
+            this.bd.run(`UPDATE HOSPEDES SET ID_HOSPEDE = ?, NOME = ?, SOBRENOME = ?, CPF = ?, DATA_DE_NASCIMENTO = ?, TELEFONE = ?, EMAIL = ?, ENDEREÇO = ? WHERE ID_HOSPEDE = ?`, novoHospede, (erro) => {
                 if (erro) {
                     reject("Erro ao atualizar o cadastro", erro)
                 } else {
