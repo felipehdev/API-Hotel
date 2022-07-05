@@ -12,6 +12,9 @@ quarto(app);
 import {hospedes} from './controllers/hospedes-controllers.js'
 hospedes(app);
 
+import {funcionario} from './controllers/funcionarios-controllers.js'
+funcionario(app);
+
 
 app.listen(3003, () => {
   console.log("codando na porta 3003");
