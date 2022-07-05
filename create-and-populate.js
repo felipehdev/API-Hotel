@@ -235,6 +235,9 @@ VALUES
     (36, "Antony Salazar Matheus Juanil", "Auxiliar de Cozinha", "Ativo", 22:00:00, 06:00:00, 2500,00),
     (37, "Carolina Anjos", "Auxiliar de Cozinha", "Ativo", 22:00:00, 06:00:00, 2500,00),
     
+    (38, "Joana Benifacio Preita", "Gerente", "Ativo", 09:00:00, 17:00:00, 6.000,00),
+    (39, "Lucas Almeida", "Sub-Gerente", "Ativo", 09:00:00, 17:00:00, 4.000,00),
+    (40, "Salomão Ahamud", "Sub-Gerente", "Ativo", 17:00:00, 01:00:00, 4.000,00)
 
 `
 function criaTabelaFuncionarios() {
@@ -245,7 +248,7 @@ function criaTabelaFuncionarios() {
 
 
 function populaTabelafuncionarios() {
-    db.run(ADD_QUARTOS_DATA, (error) => {
+    db.run(ADD_FUNCIONARIOS_DATA, (error) => {
         if (error) console.log("Erro ao popular tabela de FUNCIONARIOS", error);
     });
 }
