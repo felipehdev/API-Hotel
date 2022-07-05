@@ -1,6 +1,6 @@
-import {Hospedes} from '../models/hospedes-models';
+import {Hospedes} from '../models/hospedes-models.js';
 import {bd} from '../infra/sqlite-db.js';
-import {HospedesDAO} from "../DAO/hospedes-dao";
+import {HospedesDAO} from "../DAO/hospedes-dao.js";
 
 const hospedes = (app) => {
     //DAO
@@ -9,7 +9,7 @@ const hospedes = (app) => {
     //Rota POST
     app.post('/hospedes', (req, res) => {
         const body = req.body;
-        const novoHospede = new Hospede(body.id_hospede, body.nome, body.sobrenome, body.cpf, body.data_de_nascimento, body.telefone, body.email, body.endereco)
+        const novoHospede = new Hospedes(body.id_hospede, body.nome, body.sobrenome, body.cpf, body.data_de_nascimento, body.telefone, body.email, body.endereco)
         DadosDAO.inserirHospede(novoHospede)
         .then((result) => {
             res.send("Hospede cadastrado com sucesso");
