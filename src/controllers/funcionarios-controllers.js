@@ -1,6 +1,6 @@
 import {Funcionario} from '../models/funcionarios-models.js';
 import {bd} from '../infra/sqlite-db.js';
-import {FuncionarioDAO} from "../DAO/funcionarios-dao";
+import {FuncionarioDAO} from "../DAO/funcionarios-dao.js";
 
 const funcionario = (app) => {
     //DAO
