@@ -5,7 +5,7 @@ const bd = new sqlite3.Database('./src/infra/database.db');
 //Processamento de sinal
 process.on('SIGINT', () =>
     bd.close(() => {
-        console.log('BD encerrado!');
+        console.log('SERVIDOR ENCERRADO');
         process.exit(0);
     })
 );

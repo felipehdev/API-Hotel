@@ -17,5 +17,5 @@ funcionario(app);
 
 
 app.listen(3003, () => {
-  console.log("codando na porta 3003");
+  console.log("SERVIDOR INICIADO UTILIZANDO A PORTA 3003");
 });
