@@ -57,10 +57,10 @@ DELETE |http://localhost:3003/funcionario/:id | Deleta o hóspede de acordo com 
 
 METODO | ROTA | FUNCIONALIDADE
 :--------- | :------: | :-------:
-POST| http://localhost:3003/quarto| Insere novo quarto passando no body os atributos numero_quarto, bqnt_hospedes, ocupacao, classe, bdiaria, manutencao
+POST| http://localhost:3003/quarto| Insere novo quarto passando no body os atributos numero_quarto, qnt_hospedes, ocupacao, classe, diaria, manutencao
 GET | http://localhost:3003/quarto | Retorna todos os quartos
 GET | http://localhost:3003/quarto/:id|Retorna o quarto com o id selecionado
-PUT |http://localhost:3003/quarto/:id|Modifica o quarto com o id passado, permite modificar de um a todos os parâmetros do funcionário selecionado
+PUT |http://localhost:3003/quarto/:id|Modifica o quarto com o id passado, permite modificar de um a todos os parâmetros do quarto selecionado
 DELETE |http://localhost:3003/quarto/:id | Deleta o quarto de acordo com o id passado
 
 **RESERVAS**
