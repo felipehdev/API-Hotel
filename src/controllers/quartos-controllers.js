@@ -17,7 +17,7 @@ const quarto = (app) => {
     })
     //Rota GET que puxa todos os quartos
     app.get('/quarto', (req, res) => {
-        DadosDAO.listarQuarto()
+        DadosDAO.listarQuartos()
         .then((result) => {
             res.json(result)
         }).catch((err) => {res.send(err)})

@@ -34,7 +34,7 @@ class QuartoDAO {
     }
 
     // funçao GET por id
-    listarQuartos(id){
+    listarQuarto(id){
         return new Promise((resolve, reject) => {
             this.bd.all(`SELECT * FROM QUARTOS WHERE ID_QUARTO = ?`, [id], (erro, rows) => {
                 if (erro) {
@@ -76,7 +76,7 @@ class QuartoDAO {
     // funçao UPDATE
     alterarQuarto(novoQuarto){
         return new Promise((resolve, reject) => {
-            this.bd.run(`UPDATE QUARTO SET NUMERO_DO_QUARTO = ?, QNT_HOSPEDES = ?, OCUPAÇÃO = ?, CLASSE = ?, DIARIA = ?, MANUTENÇÃO = ?, WHERE ID_QUARTO = ?`, novoQuarto, (erro) => {
+            this.bd.run(`UPDATE QUARTOS SET NUMERO_DO_QUARTO = ?, QNT_HOSPEDES = ?, OCUPAÇÃO = ?, CLASSE = ?, DIARIA = ?, MANUTENÇÃO = ?, WHERE ID_QUARTO = ?`, novoQuarto, (erro) => {
                 if (erro) {
                     reject("Erro ao atualizar o quarto", erro)
                 } else {
@@ -89,7 +89,7 @@ class QuartoDAO {
     // funçao DELETE
     deletarQuarto(id){
         return new Promise ((resolve, reject) => {
-            this.bd.run(`DELETE FROM QUARTO WHERE ID_QUARTO = ${id}`, (erro) => {
+            this.bd.run(`DELETE FROM QUARTOS WHERE ID_QUARTO = ${id}`, (erro) => {
                 if (erro) {
                     reject("Erro ao deletar o quarto", erro)
                 } else {
