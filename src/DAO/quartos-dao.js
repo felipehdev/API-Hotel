@@ -47,16 +47,23 @@ class QuartoDAO {
     }
 
     // funçao GET que puxa quartos ocupados ou desocupados / TESTAR
-    listarOcupacao(sn){
+    listarQuartoOcup(sn){
         return new Promise((resolve, reject) => {
-            this.bd.all(`SELECT * FROM QUARTOS WHERE OCUPACAO = ?`, [sn], (erro, rows) => {
+            this.bd.all(`SELECT * FROM QUARTOS WHERE OCUPAÇÃO = ?`, [sn], (erro, rows) => {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
-                }else if ( sn == 'nao') {
-                    resolve({"Quartos desocupados": rows})
+                } else {
+                    resolve({"Quarto selecionado": rows})
                 }
-                else if (sn = 'sim') {
-                    resolve({"Quartos ocupados": rows})
+            })
+        })
+    }listarQuarto(id){
+        return new Promise((resolve, reject) => {
+            this.bd.all(`SELECT * FROM QUARTOS WHERE ID_QUARTO = ?`, [id], (erro, rows) => {
+                if (erro) {
+                    reject("Erro ao selecionar o banco", erro)
+                } else {
+                    resolve({"Quarto selecionado": rows})
                 }
             })
         })

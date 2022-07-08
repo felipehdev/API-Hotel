@@ -32,9 +32,9 @@ const quarto = (app) => {
     })
 
     //Rota GET que puxa apenas quartos desocupados
-    app.get('/quarto/ocupacao:sn', (req, res) => {
+    app.get('/quarto/ocupacao/:sn', (req, res) => {
         const sn = req.params.ocupacao;
-        DadosDAO.listarOcupacao(sn)
+        DadosDAO.listarQuartoOcup(sn)
         .then((result) => {
             res.json(result)
         }).catch((err) => {res.send(err)})

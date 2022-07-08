@@ -50,7 +50,7 @@ METODO | ROTA | FUNCIONALIDADE
 POST| ``http://localhost:3003/hospedes``| Insere novo hóspedes passando no body os atributos id_hospede, nome, sobrenome, cpf, data_de_nascimento, telefone, email, endereco
 GET | ``http://localhost:3003/hospedes`` | Retorna todos os hóspedes
 GET | ``http://localhost:3003/hospedes/:id``| Retorna o hóspede com o id selecionado
-PUT |``http://localhost:3003``|Modifica um hóspedes de acordo com o id passado, permite modificar de um a todos os parâmetros do hóspede selecionado
+PUT |``http://localhost:3003/:id``|Modifica um hóspedes de acordo com o id passado, permite modificar de um a todos os parâmetros do hóspede selecionado
 DELETE |``http://localhost:3003/funcionario/:id`` | Deleta o hóspede de acordo com o id passado
 
 **QUARTOS**
