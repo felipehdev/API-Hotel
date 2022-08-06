@@ -1,5 +1,11 @@
 import express from "express";
+
+import cors from 'cors';
+
+const port = process.env.PORT || 3000;
+
 const app = express();
+app.use(cors())
 
 app.use(express.json());
 
@@ -16,6 +22,6 @@ import {funcionario} from './controllers/funcionarios-controllers.js'
 funcionario(app);
 
 
-app.listen(3003, () => {
-  console.log("SERVIDOR INICIADO UTILIZANDO A PORTA 3003");
+app.listen(port, () => {
+  console.log(`SERVIDOR INICIADO UTILIZANDO A PORTA ${port}`);
 });
