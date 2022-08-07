@@ -27,7 +27,7 @@ class QuartoDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Quartos selecionadas": resultado});
+                    resolve({"quarto": resultado});
                 }
             })
         })
@@ -40,7 +40,7 @@ class QuartoDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Quarto selecionado": rows})
+                    resolve({"quarto": rows})
                 }
             })
         })
@@ -53,7 +53,7 @@ class QuartoDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Quarto selecionado": rows})
+                    resolve({"quarto": rows})
                 }
             })
         })
@@ -63,7 +63,7 @@ class QuartoDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Quarto selecionado": rows})
+                    resolve({"quarto": rows})
                 }
             })
         })
