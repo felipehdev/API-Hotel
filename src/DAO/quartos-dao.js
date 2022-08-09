@@ -46,6 +46,19 @@ class QuartoDAO {
         })
     }
 
+    // funçao GET por quantidade de hospedes no quarto
+    listarHospedesPorQuarto(quantidade){
+        return new Promise((resolve, reject) => {
+            this.bd.all(`SELECT * FROM QUARTOS WHERE QNT_HOSPEDES = ?`, [quantidade], (erro, rows) => {
+                if (erro) {
+                    reject("Erro ao selecionar o banco", erro)
+                } else {
+                    resolve({"quarto": rows})
+                }
+            })
+        })
+    }
+
     // funçao GET que puxa quartos ocupados ou desocupados / TESTAR
     listarQuartoOcup(sn){
         return new Promise((resolve, reject) => {
