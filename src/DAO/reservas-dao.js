@@ -25,7 +25,7 @@ class ReservaDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Reservas selecionadas": resultado});
+                    resolve({"reserva": resultado});
                 }
             })
         })
@@ -37,7 +37,7 @@ class ReservaDAO {
                 if (erro) {
                     reject("Erro ao selecionar o banco", erro)
                 } else {
-                    resolve({"Reserva selecionada": rows})
+                    resolve({"reserva": rows})
                 }
             })
         })
