@@ -30,6 +30,7 @@ const reserva = (app) => {
             res.json(result)
         }).catch((err) => {res.send(err)})
     })
+
     //Rota PUT
     app.put('/reserva/:id', (req, res) => {
         const body = req.body
