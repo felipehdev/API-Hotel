@@ -43,7 +43,7 @@ const reserva = (app) => {
     app.put('/reserva/:id', (req, res) => {
         const body = req.body
         const id = req.params.id;
-        const reservaAlt = DadosDAO.listarReserva(id);
+        const reservaAlt = DadosDAO.listarReservaPorId(id);
         const dadosNovos = new Reserva(
             body.id_quarto || reservaAlt.id_quarto, 
             body.id_hospede || reservaAlt.id_hospede, 
