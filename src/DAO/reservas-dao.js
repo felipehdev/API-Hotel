@@ -43,6 +43,18 @@ class ReservaDAO {
         })
     }
 
+    listarReservaPorId(id){
+        return new Promise((resolve, reject) => {
+            this.bd.all(`SELECT * FROM RESERVAS WHERE ID_RESERVA = ?`, [id], (erro, rows) => {
+                if (erro) {
+                    reject("Erro ao selecionar o banco", erro)
+                } else {
+                    resolve({"reserva": rows})
+                }
+            })
+        })
+    }
+
 
     alterarReserva(novaReserva){
         return new Promise((resolve, reject) => {
